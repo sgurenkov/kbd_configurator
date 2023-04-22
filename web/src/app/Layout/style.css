@@ -1,0 +1,246 @@
+/*	RC(0,0)  RC(0,1)  RC(0,2)  RC(0,3)  RC(0,4)    RC(0,21) RC(0,20) RC(0,19) RC(0,18) RC(0,17)*/
+/*	RC(0,5)  RC(0,6)  RC(0,7)  RC(0,8)  RC(0,9)    RC(0,26) RC(0,25) RC(0,24) RC(0,23) RC(0,22)*/
+/*	RC(0,10) RC(0,11) RC(0,12) RC(0,13) RC(0,14)   RC(0,31) RC(0,30) RC(0,29) RC(0,28) RC(0,27)*/
+/*	                           RC(0,15) RC(0,16)   RC(0,33) RC(0,32)*/
+
+/*Keys 0 - 33*/
+
+.pushable {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  transition: filter 250ms;
+}
+.shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: hsl(0deg 0% 0% / 0.25);
+  will-change: transform;
+  transform: translateY(2px);
+  transition:
+    transform
+    600ms
+    cubic-bezier(.3, .7, .4, 1);
+}
+.edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: linear-gradient(
+    to left,
+    hsl(0, 0%, 15%) 0%,
+    hsl(0 0% 25%) 8%,
+    hsl(0 0% 25%) 92%,
+    hsl(0 0% 15%) 100%
+  );
+}
+.front {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 98%;
+  /*margin-left: 2%;*/
+  /*margin-top: 6%;*/
+  border-radius: 12px;
+  background: hsl(0, 0%, 35%);
+  will-change: transform;
+  transform: translateY(-4px);
+  transition:
+    transform
+    600ms
+    cubic-bezier(.3, .7, .4, 1);
+}
+.pushable:hover {
+  filter: brightness(115%);
+}
+.pushable:hover .front {
+  transform: translateY(-5px);
+  transition:
+    transform
+    250ms
+    cubic-bezier(.3, .7, .4, 1.5);
+}
+.pushable:active .front {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+}
+.pushable:hover .shadow {
+  transform: translateY(4px);
+  transition:
+    transform
+    250ms
+    cubic-bezier(.3, .7, .4, 1.5);
+}
+.pushable:active .shadow {
+  transform: translateY(1px);
+  transition: transform 34ms;
+}
+.pushable:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* KEY POSITIONING */
+[data-switch-key] {
+  position: absolute;
+  width: 15%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+}
+/* left side*/
+[data-switch-key="0"] {
+  left: 7.5%;
+  top: 31.6%;
+}
+[data-switch-key="1"] {
+  left: 24.3%;
+  top: 17.5%;
+}
+[data-switch-key="2"] {
+  left: 41.3%;
+  top: 9.5%;
+}
+[data-switch-key="3"] {
+  left: 58.3%;
+  top: 16.1%;
+}
+[data-switch-key="4"] {
+  left: 75.3%;
+  top: 19%;
+}
+[data-switch-key="5"] {
+  left: 7.5%;
+  top: 51.6%;
+}
+[data-switch-key="6"] {
+  left: 24.3%;
+  top: 37.5%;
+}
+[data-switch-key="7"] {
+  left: 41.3%;
+  top: 29.5%;
+}
+[data-switch-key="8"] {
+  left: 58.3%;
+  top: 36.1%;
+}
+[data-switch-key="9"] {
+  left: 75.3%;
+  top: 39%;
+}
+[data-switch-key="10"] {
+  left: 7.5%;
+  top: 71.6%;
+}
+[data-switch-key="11"] {
+  left: 24.3%;
+  top: 57.5%;
+}
+[data-switch-key="12"] {
+  left: 41.3%;
+  top: 49.5%;
+}
+[data-switch-key="13"] {
+  left: 58.3%;
+  top: 56.1%;
+}
+[data-switch-key="14"] {
+  left: 75.3%;
+  top: 59%;
+}
+[data-switch-key="15"] {
+  left: 67%;
+  top: 82%;
+  rotate: 20deg;
+}
+[data-switch-key="16"] {
+  left: 81.7%;
+  top: 90%;
+  rotate: 23deg;
+}
+
+/* right side*/
+.right-panel [data-switch-key] {
+  transform: translate(50%, -50%);
+}
+[data-switch-key="17"] {
+  right: 7.5%;
+  top: 31.6%;
+}
+[data-switch-key="18"] {
+  right: 24.3%;
+  top: 17.5%;
+}
+[data-switch-key="19"] {
+  right: 41.3%;
+  top: 9.5%;
+}
+[data-switch-key="20"] {
+  right: 58.3%;
+  top: 16.1%;
+}
+[data-switch-key="21"] {
+  right: 75.3%;
+  top: 19%;
+}
+[data-switch-key="22"] {
+  right: 7.5%;
+  top: 51.6%;
+}
+[data-switch-key="23"] {
+  right: 24.3%;
+  top: 37.5%;
+}
+[data-switch-key="24"] {
+  right: 41.3%;
+  top: 29.5%;
+}
+[data-switch-key="25"] {
+  right: 58.3%;
+  top: 36.1%;
+}
+[data-switch-key="26"] {
+  right: 75.3%;
+  top: 39%;
+}
+[data-switch-key="27"] {
+  right: 7.5%;
+  top: 71.6%;
+}
+[data-switch-key="28"] {
+  right: 24.3%;
+  top: 57.5%;
+}
+[data-switch-key="29"] {
+  right: 41.3%;
+  top: 49.5%;
+}
+[data-switch-key="30"] {
+  right: 58.3%;
+  top: 56.1%;
+}
+[data-switch-key="31"] {
+  right: 75.3%;
+  top: 59%;
+}
+[data-switch-key="32"] {
+  right: 67%;
+  top: 82%;
+  rotate: -20deg;
+}
+[data-switch-key="33"] {
+  right: 81.7%;
+  top: 90%;
+  rotate: -23deg;
+}
