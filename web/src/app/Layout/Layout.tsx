@@ -6,7 +6,7 @@
 // Keys 0 - 33
 //
 
-import { Layer, SwitchKey } from "../../model";
+import { Layer, SwitchKey } from "../../shared/model";
 import { SwitchKey as SwitchCmp } from "../../shared/ui/SwitchKey";
 import "./style.css";
 
@@ -21,7 +21,7 @@ export function Layout(props: Props) {
     return (
       <SwitchCmp
         index={index}
-        label={def.binding.behavior}
+        label={def.description}
         action={props.onConfigureSwitch}
       />
     );

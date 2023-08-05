@@ -2,6 +2,11 @@ import { BehaviorType } from "./Behavior";
 import { KeyCode } from "../KeyCodes";
 import { Layer } from "../Layer";
 
+export interface Bindable {
+  get binding(): Binding;
+  set binding(binding: Binding);
+}
+
 export type Binding =
   // keypress
   | {
