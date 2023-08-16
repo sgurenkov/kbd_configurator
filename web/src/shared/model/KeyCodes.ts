@@ -492,7 +492,7 @@ const numbers = [
       i: true,
     },
   },
-] satisfies KeyCodeDef[];
+] as const satisfies readonly KeyCodeDef[];
 
 const symbols = [
   {
@@ -940,7 +940,7 @@ const symbols = [
       i: true,
     },
   },
-] satisfies KeyCodeDef[];
+] as const satisfies readonly KeyCodeDef[];
 
 const controls = [
   {
@@ -1039,7 +1039,7 @@ const controls = [
       i: true,
     },
   },
-] satisfies KeyCodeDef[];
+] as const satisfies readonly KeyCodeDef[];
 
 const navigation = [
   {
@@ -1684,7 +1684,7 @@ const international = [
       i: false,
     },
   },
-] satisfies KeyCodeDef[];
+] as const satisfies readonly KeyCodeDef[];
 
 const language = [
   {
@@ -1959,8 +1959,14 @@ export const KeyCodes = {
   miscellaneous,
 };
 
-export const keyCodesByName: { [k: KeyCode]: KeyCodeDef } = {};
+export const keyCodesByName: { [k in KeyCode]: KeyCodeDef } = {} as {
+  [k in KeyCode]: KeyCodeDef;
+};
 
 Object.values(KeyCodes).forEach((list) =>
-  list.forEach((item) => (keyCodesByName[item.name] = item))
+  list.forEach((item) => (keyCodesByName[item.name] = item)),
 );
+
+export const keyCodeDef = (keyCode: KeyCode): KeyCodeDef => {
+  return keyCodesByName[keyCode];
+};

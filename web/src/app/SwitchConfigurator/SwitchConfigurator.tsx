@@ -9,7 +9,7 @@ interface Props {
 }
 export function SwitchConfigurator(props: Props) {
   const [behavior, setBehavior] = createSignal<BehaviorType>(
-    props.switchKey.binding.behavior ?? BehaviorType.KeyPress
+    props.switchKey.binding.behavior ?? BehaviorType.KeyPress,
   );
   const showKeyCodeSelector = () => {
     switch (behavior()) {

@@ -1,10 +1,10 @@
-import { createSwitch, KeyboardButton } from "./KeyboardButton.ts";
+import { createSwitch, KeyboardButton } from "./KeyboardButton";
 
 export interface Layer {
+  index: number;
   name: string;
-  order: number;
   color: string;
-  switches: KeyboardButton[];
+  keyboardButtons: KeyboardButton[];
 }
 
 function color(order: number): string {
@@ -24,15 +24,15 @@ function color(order: number): string {
 }
 
 export function createLayer(
-  order: number,
+  index: number,
   keyCount: number,
-  name?: string
+  name?: string,
 ): Layer {
   return {
-    order,
-    name: name ?? `Layer ${order}`,
-    color: color(order),
-    switches: Array(keyCount)
+    index,
+    name: name ?? `Layer ${index}`,
+    color: color(index),
+    keyboardButtons: Array(keyCount)
       .fill(null)
       .map((_, key) => {
         return createSwitch(key);

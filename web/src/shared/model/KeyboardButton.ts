@@ -1,10 +1,14 @@
 import { BehaviorType, WithBehavior } from "./behavior/Behavior";
-import { keyCodesByName } from "./KeyCodes";
-import { Bindable, Binding } from "./behavior/Binding";
+import { KeyCodeDef, keyCodesByName } from "./KeyCodes";
+import { BindingType } from "./behavior/Binding";
 
-export class KeyboardButton implements Bindable, WithBehavior {
+/**
+ * Each KeyboardButton has it's ascending number within a keyboard `index`
+ * Binding defines behavior on a particular layer
+ */
+export class KeyboardButton implements WithBehavior {
   readonly index: number;
-  private _binding: Binding;
+  private _binding: BindingType;
 
   constructor(index: number) {
     this.index = index;
@@ -15,10 +19,10 @@ export class KeyboardButton implements Bindable, WithBehavior {
   get type(): BehaviorType {
     return this._binding.behavior;
   }
-  get binding(): Binding {
+  get binding(): BindingType {
     return this._binding;
   }
-  set binding(binding: Binding) {
+  set binding(binding: BindingType) {
     this._binding = binding;
   }
   // labels
@@ -28,13 +32,33 @@ export class KeyboardButton implements Bindable, WithBehavior {
       case BehaviorType.Transparent:
         return "";
       case BehaviorType.KeyPress:
-        return this.keyDescription(b.keyCode);
+        return this.keyDef(b.keyCode).description;
       default:
         return "todo";
     }
   }
-  private keyDescription(keyCode: string): string {
-    return keyCodesByName[keyCode].description;
+
+  export(): string {
+    const b = this._binding;
+    switch (b.behavior) {
+      case BehaviorType.Transparent:
+        return b.behavior.toString();
+      case BehaviorType.KeyPress:
+        return `${b.behavior.toString()} ${this.keyName()}`;
+      default:
+        return "todo";
+    }
+  }
+
+  private keyName(): string {
+    if (this._binding.behavior === BehaviorType.KeyPress) {
+      return this.keyDef(this._binding.keyCode).name;
+    }
+    return "";
+  }
+
+  private keyDef(keyCode: string): KeyCodeDef {
+    return keyCodesByName[keyCode];
   }
 }
 
