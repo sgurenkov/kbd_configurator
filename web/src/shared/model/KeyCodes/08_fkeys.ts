@@ -1,0 +1,268 @@
+import { KeyCodeDef } from "./def";
+
+export const fkeys = [
+  {
+    name: "F1",
+    description: "F1",
+    os: {
+      w: true,
+      l: true,
+      m: true,
+      a: true,
+      i: true,
+    },
+  },
+  {
+    name: "F2",
+    description: "F2",
+    os: {
+      w: true,
+      l: true,
+      m: true,
+      a: true,
+      i: true,
+    },
+  },
+  {
+    name: "F3",
+    description: "F3",
+    os: {
+      w: true,
+      l: true,
+      m: true,
+      a: true,
+      i: true,
+    },
+  },
+  {
+    name: "F4",
+    description: "F4",
+    os: {
+      w: true,
+      l: true,
+      m: true,
+      a: true,
+      i: true,
+    },
+  },
+  {
+    name: "F5",
+    description: "F5",
+    os: {
+      w: true,
+      l: true,
+      m: true,
+      a: true,
+      i: true,
+    },
+  },
+  {
+    name: "F6",
+    description: "F6",
+    os: {
+      w: true,
+      l: true,
+      m: true,
+      a: true,
+      i: true,
+    },
+  },
+  {
+    name: "F7",
+    description: "F7",
+    os: {
+      w: true,
+      l: true,
+      m: true,
+      a: true,
+      i: true,
+    },
+  },
+  {
+    name: "F8",
+    description: "F8",
+    os: {
+      w: true,
+      l: true,
+      m: true,
+      a: true,
+      i: true,
+    },
+  },
+  {
+    name: "F9",
+    description: "F9",
+    os: {
+      w: true,
+      l: true,
+      m: true,
+      a: true,
+      i: true,
+    },
+  },
+  {
+    name: "F10",
+    description: "F10",
+    os: {
+      w: true,
+      l: true,
+      m: true,
+      a: true,
+      i: true,
+    },
+  },
+  {
+    name: "F11",
+    description: "F11",
+    os: {
+      w: true,
+      l: true,
+      m: true,
+      a: true,
+      i: true,
+    },
+  },
+  {
+    name: "F12",
+    description: "F12",
+    os: {
+      w: true,
+      l: true,
+      m: true,
+      a: true,
+      i: true,
+    },
+  },
+  {
+    name: "F13",
+    description: "F13",
+    os: {
+      w: true,
+      l: true,
+      m: true,
+      a: false,
+      i: true,
+    },
+  },
+  {
+    name: "F14",
+    description: "F14",
+    os: {
+      w: true,
+      l: true,
+      m: true,
+      a: false,
+      i: true,
+    },
+  },
+  {
+    name: "F15",
+    description: "F15",
+    os: {
+      w: true,
+      l: true,
+      m: true,
+      a: false,
+      i: true,
+    },
+  },
+  {
+    name: "F16",
+    description: "F16",
+    os: {
+      w: true,
+      l: true,
+      m: true,
+      a: false,
+      i: true,
+    },
+  },
+  {
+    name: "F17",
+    description: "F17",
+    os: {
+      w: true,
+      l: true,
+      m: true,
+      a: false,
+      i: true,
+    },
+  },
+  {
+    name: "F18",
+    description: "F18",
+    os: {
+      w: true,
+      l: true,
+      m: true,
+      a: false,
+      i: true,
+    },
+  },
+  {
+    name: "F19",
+    description: "F19",
+    os: {
+      w: true,
+      l: true,
+      m: true,
+      a: false,
+      i: true,
+    },
+  },
+  {
+    name: "F20",
+    description: "F20",
+    os: {
+      w: true,
+      l: true,
+      m: true,
+      a: false,
+      i: true,
+    },
+  },
+  {
+    name: "F21",
+    description: "F21",
+    os: {
+      w: true,
+      l: true,
+      m: true,
+      a: false,
+      i: true,
+    },
+  },
+  {
+    name: "F22",
+    description: "F22",
+    os: {
+      w: true,
+      l: true,
+      m: true,
+      a: false,
+      i: true,
+    },
+  },
+  {
+    name: "F23",
+    description: "F23",
+    os: {
+      w: true,
+      l: true,
+      m: true,
+      a: false,
+      i: true,
+    },
+  },
+  {
+    name: "F24",
+    description: "F24",
+    os: {
+      w: true,
+      l: true,
+      m: true,
+      a: false,
+      i: true,
+    },
+  },
+] as const satisfies readonly KeyCodeDef[];

@@ -1,0 +1,108 @@
+import { KeyCodeDef } from "./def";
+
+export const modifiers = [
+  {
+    name: "LSHIFT",
+    char: "⇧",
+    meta: "L",
+    description: "Left Shift",
+    os: {
+      w: true,
+      l: true,
+      m: true,
+      a: true,
+      i: true,
+    },
+  },
+  {
+    name: "RSHIFT",
+    char: "⇧",
+    meta: "R",
+    description: "Right Shift",
+    os: {
+      w: true,
+      l: true,
+      m: true,
+      a: true,
+      i: true,
+    },
+  },
+  {
+    name: "LCTRL",
+    char: "^",
+    meta: "L",
+    description: "Left Control",
+    os: {
+      w: true,
+      l: true,
+      m: true,
+      a: true,
+      i: true,
+    },
+  },
+  {
+    name: "RCTRL",
+    char: "^",
+    meta: "R",
+    description: "Right Control",
+    os: {
+      w: true,
+      l: true,
+      m: true,
+      a: true,
+      i: true,
+    },
+  },
+  {
+    name: "LALT",
+    char: "⌥",
+    meta: "L",
+    description: "Left Alt",
+    os: {
+      w: true,
+      l: true,
+      m: true,
+      a: true,
+      i: true,
+    },
+  },
+  {
+    name: "RALT",
+    char: "⌥",
+    meta: "R",
+    description: "Right Alt",
+    os: {
+      w: true,
+      l: true,
+      m: true,
+      a: true,
+      i: true,
+    },
+  },
+  {
+    name: "LGUI",
+    char: "⌘",
+    meta: "L",
+    description: "Left GUI (Windows / Command / Meta)",
+    os: {
+      w: true,
+      l: true,
+      m: true,
+      a: true,
+      i: true,
+    },
+  },
+  {
+    name: "RGUI",
+    char: "⌘",
+    meta: "R",
+    description: "Right GUI (Windows / Command / Meta)",
+    os: {
+      w: true,
+      l: true,
+      m: true,
+      a: true,
+      i: true,
+    },
+  },
+] as const satisfies readonly KeyCodeDef[];
