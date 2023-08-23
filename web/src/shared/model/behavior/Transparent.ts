@@ -1,5 +1,5 @@
 import { Behavior, BehaviorType } from "./Behavior";
-import { BindingInterface, Labels } from "./Binding";
+import { Binding, Labels } from "./Binding";
 
 export const TransparentBehavior: Behavior = {
   name: "Transparent",
@@ -9,7 +9,7 @@ export const TransparentBehavior: Behavior = {
      <p><a target="_blank" href='https://zmk.dev/docs/behaviors/misc'>documentation</a></p>`,
 };
 
-export class TransparentBinding implements BindingInterface {
+export class TransparentBinding implements Binding {
   readonly behavior = TransparentBehavior;
 
   get labels(): Labels {

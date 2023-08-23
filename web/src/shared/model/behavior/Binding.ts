@@ -21,7 +21,7 @@ export interface Labels {
   sub?: string;
 }
 
-export interface BindingInterface {
+export interface Binding {
   readonly behavior: Behavior;
   get labels(): Labels;
   export(): string;

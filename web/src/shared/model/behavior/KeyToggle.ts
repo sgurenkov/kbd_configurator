@@ -1,6 +1,6 @@
 import { KeyCode, keyCodeDef } from "../KeyCodes";
 import { Behavior, BehaviorType } from "./Behavior";
-import { BindingInterface, Labels } from "./Binding";
+import { Binding, Labels } from "./Binding";
 
 export const KeyToggleBehavior: Behavior = {
   name: "Key Toggle",
@@ -17,7 +17,7 @@ export const KeyToggleBehavior: Behavior = {
   `,
 };
 
-export class KeyPressBinding implements BindingInterface {
+export class KeyPressBinding implements Binding {
   readonly keyCode: KeyCode;
   readonly behavior = KeyToggleBehavior;
   constructor(keyCode: KeyCode) {

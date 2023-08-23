@@ -1,6 +1,6 @@
 import { KeyCode, keyCodeDef } from "../KeyCodes";
 import { Behavior, BehaviorType } from "./Behavior";
-import { BindingInterface, Labels } from "./Binding";
+import { Binding, Labels } from "./Binding";
 
 export const ModTapBehavior: Behavior = {
   name: "Mod Tap",
@@ -18,7 +18,7 @@ export const ModTapBehavior: Behavior = {
   `,
 };
 
-export class ModTapBinding implements BindingInterface {
+export class ModTapBinding implements Binding {
   readonly modKey: KeyCode;
   readonly tapKey: KeyCode;
   readonly behavior = ModTapBehavior;

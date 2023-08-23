@@ -1,5 +1,5 @@
 import { Behavior, BehaviorType } from "./Behavior";
-import { BindingInterface, Labels } from "./Binding";
+import { Binding, Labels } from "./Binding";
 
 export const NoneBehavior: Behavior = {
   name: "None",
@@ -9,7 +9,7 @@ export const NoneBehavior: Behavior = {
      <p><a target="_blank" href='https://zmk.dev/docs/behaviors/misc'>documentation</a></p>`,
 };
 
-export class NoneBinding implements BindingInterface {
+export class NoneBinding implements Binding {
   readonly behavior = NoneBehavior;
 
   get labels(): Labels {

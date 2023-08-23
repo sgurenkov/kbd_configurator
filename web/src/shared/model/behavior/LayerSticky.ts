@@ -1,6 +1,6 @@
 import { KeyCode, keyCodeDef } from "../KeyCodes";
 import { Behavior, BehaviorType } from "./Behavior";
-import { BindingInterface, Labels } from "./Binding";
+import { Binding, Labels } from "./Binding";
 
 export const LayerStickyBehavior: Behavior = {
   name: "Layer Sticky",
@@ -17,7 +17,7 @@ export const LayerStickyBehavior: Behavior = {
   `,
 };
 
-export class LayerStickyBinding implements BindingInterface {
+export class LayerStickyBinding implements Binding {
   readonly layerIndex: number;
   readonly tapKey: KeyCode;
   readonly behavior = LayerStickyBehavior;

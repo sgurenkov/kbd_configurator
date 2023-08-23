@@ -1,5 +1,5 @@
 import { Behavior, BehaviorType } from "./Behavior";
-import { BindingInterface, Labels } from "./Binding";
+import { Binding, Labels } from "./Binding";
 
 export const KeyRepeatBehavior: Behavior = {
   name: "Key Repeat",
@@ -10,7 +10,7 @@ export const KeyRepeatBehavior: Behavior = {
     <p><a target="_blank" href='https://zmk.dev/docs/behaviors/key-repeat'>documentation</a></p>`,
 };
 
-export class KeyRepeatBinding implements BindingInterface {
+export class KeyRepeatBinding implements Binding {
   readonly behavior = KeyRepeatBehavior;
 
   get labels(): Labels {

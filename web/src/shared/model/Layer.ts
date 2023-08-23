@@ -1,10 +1,11 @@
-import { createSwitch, KeyboardButton } from "./KeyboardButton";
+import { Binding } from "./behavior/Binding";
+import { TransparentBinding } from "./behavior/Transparent";
 
 export interface Layer {
   index: number;
   name: string;
   color: string;
-  keyboardButtons: KeyboardButton[];
+  bindings: Binding[];
 }
 
 function color(order: number): string {
@@ -32,10 +33,8 @@ export function createLayer(
     index,
     name: name ?? `Layer ${index}`,
     color: color(index),
-    keyboardButtons: Array(keyCount)
+    bindings: Array(keyCount)
       .fill(null)
-      .map((_, key) => {
-        return createSwitch(key);
-      }),
+      .map(() => new TransparentBinding()),
   };
 }

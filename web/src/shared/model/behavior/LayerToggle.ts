@@ -1,5 +1,5 @@
 import { Behavior, BehaviorType } from "./Behavior";
-import { BindingInterface, Labels } from "./Binding";
+import { Binding, Labels } from "./Binding";
 
 export const LayerToggleBehavior: Behavior = {
   name: "Layer Toggle",
@@ -11,7 +11,7 @@ export const LayerToggleBehavior: Behavior = {
   `,
 };
 
-export class LayerToggleBinding implements BindingInterface {
+export class LayerToggleBinding implements Binding {
   readonly layerIndex: number;
   readonly behavior = LayerToggleBehavior;
   constructor(layerIndex: number) {

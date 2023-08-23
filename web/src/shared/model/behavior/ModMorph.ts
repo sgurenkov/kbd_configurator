@@ -1,6 +1,6 @@
 import { KeyCode, keyCodeDef } from "../KeyCodes";
 import { Behavior, BehaviorType } from "./Behavior";
-import { BindingInterface, Labels } from "./Binding";
+import { Binding, Labels } from "./Binding";
 
 export class ModMorphBehaviorClass implements Behavior {
   name: string;
@@ -25,7 +25,7 @@ export class ModMorphBehaviorClass implements Behavior {
 /**
  * emits ESC without modified key and emits ` with any modifier key
  */
-export class GraveEscapeModMorphBinding implements BindingInterface {
+export class GraveEscapeModMorphBinding implements Binding {
   readonly keyCode: KeyCode;
   readonly behavior = new ModMorphBehaviorClass("&gresc", "Grave Escape");
   constructor(keyCode: KeyCode) {

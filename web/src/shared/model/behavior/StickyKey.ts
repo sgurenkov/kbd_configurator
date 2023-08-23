@@ -1,6 +1,6 @@
 import { KeyCode, keyCodeDef } from "../KeyCodes";
 import { Behavior, BehaviorType } from "./Behavior";
-import { BindingInterface, Labels } from "./Binding";
+import { Binding, Labels } from "./Binding";
 
 export const StickyKeyBehavior: Behavior = {
   name: "Sticky Key",
@@ -13,7 +13,7 @@ export const StickyKeyBehavior: Behavior = {
   `,
 };
 
-export class KeyPressBinding implements BindingInterface {
+export class KeyPressBinding implements Binding {
   readonly keyCode: KeyCode;
   readonly behavior = StickyKeyBehavior;
   constructor(keyCode: KeyCode) {

@@ -1,5 +1,5 @@
 import { Behavior, BehaviorType } from "./Behavior";
-import { BindingInterface, Labels } from "./Binding";
+import { Binding, Labels } from "./Binding";
 
 export const CapsWordBehavior: Behavior = {
   name: "Caps Word",
@@ -16,7 +16,7 @@ export const CapsWordBehavior: Behavior = {
     <p><a target="_blank" href='https://zmk.dev/docs/behaviors/caps-word'>documentation</a></p>`,
 };
 
-export class CapsWordBinding implements BindingInterface {
+export class CapsWordBinding implements Binding {
   readonly behavior = CapsWordBehavior;
 
   get labels(): Labels {

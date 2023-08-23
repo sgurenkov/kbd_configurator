@@ -1,5 +1,5 @@
 import { Behavior, BehaviorType } from "./Behavior";
-import { BindingInterface, Labels } from "./Binding";
+import { Binding, Labels } from "./Binding";
 
 export const LayerToBehavior: Behavior = {
   name: "Layer To",
@@ -11,7 +11,7 @@ export const LayerToBehavior: Behavior = {
   `,
 };
 
-export class LayerToBinding implements BindingInterface {
+export class LayerToBinding implements Binding {
   readonly layerIndex: number;
   readonly behavior = LayerToBehavior;
   constructor(layerIndex: number) {

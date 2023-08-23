@@ -1,5 +1,5 @@
 import { Behavior, BehaviorType } from "./Behavior";
-import { BindingInterface, Labels } from "./Binding";
+import { Binding, Labels } from "./Binding";
 
 export const LayerMomentaryBehavior: Behavior = {
   name: "Layer Momentary",
@@ -13,7 +13,7 @@ export const LayerMomentaryBehavior: Behavior = {
   `,
 };
 
-export class LayerMomentaryBinding implements BindingInterface {
+export class LayerMomentaryBinding implements Binding {
   readonly layerIndex: number;
   readonly behavior = LayerMomentaryBehavior;
   constructor(layerIndex: number) {

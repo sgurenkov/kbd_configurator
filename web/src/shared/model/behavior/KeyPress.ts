@@ -1,6 +1,6 @@
 import { KeyCode, keyCodeDef } from "../KeyCodes";
 import { Behavior, BehaviorType } from "./Behavior";
-import { BindingInterface, Labels } from "./Binding";
+import { Binding, Labels } from "./Binding";
 
 export const KeyPressBehavior: Behavior = {
   name: "Key Press",
@@ -10,7 +10,7 @@ export const KeyPressBehavior: Behavior = {
      <p><a target="_blank" href='https://zmk.dev/docs/behaviors/key-press'>documentation</a></p>`,
 };
 
-export class KeyPressBinding implements BindingInterface {
+export class KeyPressBinding implements Binding {
   readonly keyCode: KeyCode;
   readonly behavior = KeyPressBehavior;
   constructor(keyCode: KeyCode) {

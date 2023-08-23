@@ -1,6 +1,6 @@
 import { KeyCode, keyCodeDef } from "../KeyCodes";
 import { Behavior, BehaviorType } from "./Behavior";
-import { BindingInterface, Labels } from "./Binding";
+import { Binding, Labels } from "./Binding";
 
 export const LayerTapBehavior: Behavior = {
   name: "Layer Tap",
@@ -17,7 +17,7 @@ export const LayerTapBehavior: Behavior = {
   `,
 };
 
-export class LayerTapBinding implements BindingInterface {
+export class LayerTapBinding implements Binding {
   readonly layerIndex: number;
   readonly tapKey: KeyCode;
   readonly behavior = LayerTapBehavior;
