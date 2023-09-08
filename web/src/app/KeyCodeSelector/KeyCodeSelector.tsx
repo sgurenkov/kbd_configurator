@@ -1,7 +1,7 @@
 import { createSignal, Show } from "solid-js";
-import { KeyCodes, KeyCodeDefinition } from "../../shared/model/KeyCodes";
+import { KeyCodes, KeyCodeDef } from "../../shared/model/key-codes";
 
-function Group(props: { kCodes: KeyCodeDefinition[]; label: string }) {
+function Group(props: { kCodes: KeyCodeDef[]; label: string }) {
   return (
     <Show when={props.kCodes.length > 0}>
       <div class="key-code-selector-group">
@@ -13,7 +13,7 @@ function Group(props: { kCodes: KeyCodeDefinition[]; label: string }) {
     </Show>
   );
 }
-function Switch(props: { key: KeyCodeDefinition }) {
+function Switch(props: { key: KeyCodeDef }) {
   const { key } = props;
   return (
     <button title={key.description} class="key-code-selector-button">
@@ -24,11 +24,11 @@ function Switch(props: { key: KeyCodeDefinition }) {
   );
 }
 
-type OSFilter = Array<keyof KeyCodeDefinition["os"]>;
+type OSFilter = Array<keyof KeyCodeDef["os"]>;
 
 function filterKeyCodes(
   keyCodes: typeof KeyCodes,
-  filter: OSFilter
+  filter: OSFilter,
 ): typeof KeyCodes {
   if (filter.length === 0) {
     return keyCodes;

@@ -24,7 +24,7 @@ export type KeyCode =
   | (typeof language)[number]["name"]
   | (typeof miscellaneous)[number]["name"];
 
-const KeyCodes = {
+export const KeyCodes = {
   controls,
   letters,
   modifiers,

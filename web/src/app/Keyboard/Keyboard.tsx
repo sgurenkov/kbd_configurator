@@ -1,6 +1,6 @@
 import { createSignal, Show } from "solid-js";
 import { Layout } from "../Layout";
-import { Keyboard, KeyboardButton } from "../../shared/model";
+import { Keyboard, Binding } from "../../shared/model";
 import { SwitchConfigurator } from "../SwitchConfigurator";
 import { LayerSelector } from "../LayerSelector";
 
@@ -11,15 +11,14 @@ interface Props {
 export function KeyboardComponent({ keyboard }: Props) {
   const [layers, setLayers] = createSignal(keyboard.layers());
   const [currentLayer, setCurrentLayer] = createSignal(0);
-  const [configuringSwitch, setConfiguringSwitch] =
-    createSignal<KeyboardButton>();
+  const [selectedKeyIndex, setSelectedKeyIndex] = createSignal<number>();
 
   const addLayer = () => {
     setLayers(keyboard.addLayer());
   };
 
-  const startSwitchConfiguration = (switchKey: KeyboardButton): void => {
-    setConfiguringSwitch(switchKey);
+  const startSwitchConfiguration = (keyIndex: number): void => {
+    setSelectedKeyIndex(keyIndex);
   };
 
   return (
@@ -32,15 +31,17 @@ export function KeyboardComponent({ keyboard }: Props) {
         />
         <button onClick={addLayer}>+</button>
       </div>
-      <Show when={!!configuringSwitch()}>
+      <Show when={selectedKeyIndex() !== undefined}>
         <SwitchConfigurator
-          switchKey={configuringSwitch()!}
-          layers={layers()}
+          onBind={console.info}
+          currentBinding={layers()[currentLayer()].behaviorByKeyIndex(
+            selectedKeyIndex()!,
+          )}
         />
       </Show>
       <Layout
         layer={layers()[currentLayer()]}
-        onConfigureSwitch={startSwitchConfiguration}
+        onStartConfiguring={startSwitchConfiguration}
       />
     </div>
   );

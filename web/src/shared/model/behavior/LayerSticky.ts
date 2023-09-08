@@ -1,4 +1,4 @@
-import { KeyCode, keyCodeDef } from "../KeyCodes";
+import { KeyCode, keyCodeDef } from "../key-codes";
 import { Behavior, BehaviorType } from "./Behavior";
 import { Binding, Labels } from "./Binding";
 

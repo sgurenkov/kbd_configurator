@@ -1,20 +1,54 @@
-import { createSignal, Show } from "solid-js";
-import { BehaviorType, Layer, KeyboardButton } from "../../shared/model";
+import { createSignal, Show, For } from "solid-js";
+import { BehaviorType, Binding } from "../../shared/model";
 import { KeyCodeSelector } from "../KeyCodeSelector";
 import { LayerSelector } from "../LayerSelector";
+import {
+  CapsWordBehavior,
+  GraveEscapeModMorphBehavior,
+  KeyPressBehavior,
+  KeyRepeatBehavior,
+  KeyToggleBehavior,
+  LayerMomentaryBehavior,
+  LayerStickyBehavior,
+  LayerTapBehavior,
+  LayerToBehavior,
+  LayerToggleBehavior,
+  ModTapBehavior,
+  NoneBehavior,
+  StickyKeyBehavior,
+  TransparentBehavior,
+} from "../../shared/model";
 
 interface Props {
-  switchKey: KeyboardButton;
-  layers: Layer[];
+  currentBinding: Binding;
+  onBind(binding: Binding): void;
 }
+
+const behaviors = [
+  CapsWordBehavior,
+  GraveEscapeModMorphBehavior,
+  KeyPressBehavior,
+  KeyRepeatBehavior,
+  KeyToggleBehavior,
+  LayerMomentaryBehavior,
+  LayerStickyBehavior,
+  LayerTapBehavior,
+  LayerToBehavior,
+  LayerToggleBehavior,
+  ModTapBehavior,
+  NoneBehavior,
+  StickyKeyBehavior,
+  TransparentBehavior,
+];
+
 export function SwitchConfigurator(props: Props) {
   const [behavior, setBehavior] = createSignal<BehaviorType>(
-    props.switchKey.binding.behavior ?? BehaviorType.KeyPress,
+    props.currentBinding.behavior.type ?? BehaviorType.KeyPress,
   );
   const showKeyCodeSelector = () => {
     switch (behavior()) {
       case BehaviorType.KeyPress:
-      case BehaviorType.LayerTap:
+      case BehaviorType.KeyToggle:
       case BehaviorType.StickyKey:
       case BehaviorType.ModTap:
         return true;
@@ -39,26 +73,15 @@ export function SwitchConfigurator(props: Props) {
         <select
           name="behaviorSelector"
           id="behavior-selector"
-          onChange={(event) => setBehavior(event.target.value)}
+          onChange={(event) => {
+            setBehavior(Number(event.target.value) as BehaviorType);
+          }}
         >
-          <option
-            value={BehaviorType.Transparent}
-            selected={behavior() === BehaviorType.Transparent}
-          >
-            {BehaviorType.Transparent}
-          </option>
-          <option
-            value={BehaviorType.KeyPress}
-            selected={behavior() === BehaviorType.KeyPress}
-          >
-            {BehaviorType.KeyPress}
-          </option>
-          <option
-            value={BehaviorType.LayerTo}
-            selected={behavior() === BehaviorType.LayerTo}
-          >
-            {BehaviorType.LayerTo}
-          </option>
+          {behaviors.map((b) => (
+            <option value={b.type} selected={behavior() === b.type}>
+              {b.name}
+            </option>
+          ))}
         </select>
       </div>
       <Show when={showKeyCodeSelector()}>

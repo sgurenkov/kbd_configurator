@@ -21,7 +21,7 @@ export function SwitchKey(props: {
       <span class="edge"></span>
       <span class="front">
         <Show when={props.label} keyed={true}>
-          <span class>{props.label}</span>
+          <span>{props.label}</span>
         </Show>
       </span>
     </button>

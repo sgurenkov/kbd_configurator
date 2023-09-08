@@ -1,4 +1,4 @@
-import { KeyCode, keyCodeDef } from "../KeyCodes";
+import { KeyCode, keyCodeDef } from "../key-codes";
 import { Behavior, BehaviorType } from "./Behavior";
 import { Binding, Labels } from "./Binding";
 
@@ -21,13 +21,16 @@ export class ModMorphBehaviorClass implements Behavior {
     this.name = name;
   }
 }
-
+export const GraveEscapeModMorphBehavior = new ModMorphBehaviorClass(
+  "&gresc",
+  "Grave Escape",
+);
 /**
  * emits ESC without modified key and emits ` with any modifier key
  */
 export class GraveEscapeModMorphBinding implements Binding {
   readonly keyCode: KeyCode;
-  readonly behavior = new ModMorphBehaviorClass("&gresc", "Grave Escape");
+  readonly behavior = GraveEscapeModMorphBehavior;
   constructor(keyCode: KeyCode) {
     this.keyCode = keyCode;
   }

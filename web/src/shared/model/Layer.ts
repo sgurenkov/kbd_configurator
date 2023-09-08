@@ -1,11 +1,35 @@
 import { Binding } from "./behavior/Binding";
 import { TransparentBinding } from "./behavior/Transparent";
 
-export interface Layer {
+export class Layer {
   index: number;
   name: string;
   color: string;
-  bindings: Binding[];
+  keyBindings: Binding[];
+
+  constructor(index: number, keyCount: number, name?: string) {
+    this.index = index;
+    this.name = name ?? `Layer ${index}`;
+    this.color = color(index);
+    this.keyBindings = Array(keyCount)
+      .fill(null)
+      .map(() => new TransparentBinding());
+  }
+  bindKey(keyIndex: number, binding: Binding) {
+    this.checkKeyIndex(keyIndex);
+    this.keyBindings[keyIndex] = binding;
+  }
+
+  behaviorByKeyIndex(keyIndex: number) {
+    this.checkKeyIndex(keyIndex);
+    return this.keyBindings[keyIndex];
+  }
+
+  private checkKeyIndex(keyIndex: number) {
+    if (keyIndex >= this.keyBindings.length) {
+      throw new Error(`keyIndex ${keyIndex} is out of range`);
+    }
+  }
 }
 
 function color(order: number): string {
@@ -22,19 +46,4 @@ function color(order: number): string {
     "#F6C6EA",
   ];
   return colors[order % colors.length];
-}
-
-export function createLayer(
-  index: number,
-  keyCount: number,
-  name?: string,
-): Layer {
-  return {
-    index,
-    name: name ?? `Layer ${index}`,
-    color: color(index),
-    bindings: Array(keyCount)
-      .fill(null)
-      .map(() => new TransparentBinding()),
-  };
 }
