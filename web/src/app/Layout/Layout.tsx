@@ -10,6 +10,20 @@ import { Layer } from "../../shared/model";
 import { SwitchKey as SwitchCmp } from "../../shared/ui/SwitchKey";
 import "./style.css";
 
+
+const COLOR_MAP: Record<string, string> = {
+    "#F9F9F9": "sepia(0%) saturate(7415%) hue-rotate(176deg) brightness(109%) contrast(95%)",
+    "#C4D7E0": "sepia(21%) saturate(170%) hue-rotate(159deg) brightness(91%) contrast(93%)",
+    "#FAF4B7": "sepia(11%) saturate(794%) hue-rotate(7deg) brightness(108%) contrast(96%)",
+    "#FFCCB3": "sepia(54%) saturate(333%) hue-rotate(317deg) brightness(102%) contrast(103%)",
+    "#CDF0EA": "sepia(3%) saturate(6621%) hue-rotate(188deg) brightness(132%) contrast(87%)",
+    "#ECE5C7": "sepia(3%) saturate(2421%) hue-rotate(339deg) brightness(124%) contrast(85%)",
+    "#CDC2AE": "sepia(14%) saturate(319%) hue-rotate(0deg) brightness(95%) contrast(87%)",
+    "#92BA92": "sepia(7%) saturate(1181%) hue-rotate(71deg) brightness(81%) contrast(84%)",
+    "#F4BFBF": "sepia(3%) saturate(1963%) hue-rotate(314deg) brightness(101%) contrast(103%)",
+    "#F6C6EA": "sepia(38%) saturate(201%) hue-rotate(266deg) brightness(105%) contrast(93%)",
+}
+
 interface Props {
   layer: Layer;
   onStartConfiguring: (keyIndex: number) => void;
@@ -33,8 +47,7 @@ export function Layout(props: Props) {
           <img
             class="w-full max-w-2xl"
             style={{
-              filter:
-                "sepia(1) hue-rotate(180deg) drop-shadow(2px 2px 6px #333)",
+              filter: COLOR_MAP[props.layer.color]
             }}
             src="./ferris_sweep_l.png"
             alt="kb"
@@ -43,12 +56,12 @@ export function Layout(props: Props) {
             {Array.from({ length: 17 }).map((_, i) => switchKey(i))}
           </div>
         </div>
+        <div>{props.layer.name}</div>
         <div class="relative">
           <img
             class="w-full max-w-2xl"
             style={{
-              filter:
-                "sepia(1) hue-rotate(180deg) drop-shadow(2px 2px 6px #333)",
+              filter: COLOR_MAP[props.layer.color]
             }}
             src="./ferris_sweep_r.png"
             alt="kb"

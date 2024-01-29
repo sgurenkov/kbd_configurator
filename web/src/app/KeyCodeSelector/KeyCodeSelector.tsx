@@ -13,10 +13,14 @@ function Group(props: { kCodes: KeyCodeDef[]; label: string }) {
     </Show>
   );
 }
+
 function Switch(props: { key: KeyCodeDef }) {
   const { key } = props;
   return (
-    <button title={key.description} class="key-code-selector-button">
+    <button
+      title={key.description}
+      class="key-code-selector-button text-white bg-blue-500 hover:bg-blue-700 px-2"
+    >
       <span class="key-code-selector-label">{key.char ?? key.name}</span>
       {key.char2 ? <sup class="key-code-selector-sup">{key.char2}</sup> : ""}
       {key.meta ? <span class="key-code-selector-meta">{key.meta}</span> : ""}
@@ -33,6 +37,7 @@ function filterKeyCodes(
   if (filter.length === 0) {
     return keyCodes;
   }
+
   const pairs = Object.entries(keyCodes).map(([key, item]) => {
     const newItem = item.filter((key) => filter.every((f) => key.os[f]));
     return [key, newItem];
